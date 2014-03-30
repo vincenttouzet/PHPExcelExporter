@@ -1,0 +1,28 @@
+{
+    "name": "vincet/phpexcel-exporter",
+    "description": "description_text",
+    "minimum-stability": "dev",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Vincent Touzet",
+            "email": "vincent.touzet@gmail.com"
+        }
+    ],
+    "require": {
+        "php": ">= 5.3"
+    },
+    "require-dev": {
+        "sonata-project/exporter": "dev-master",
+        "phpoffice/phpexcel": "dev-master"
+    },
+    "suggest": {
+        "sonata-project/exporter": "dev-master",
+        "phpoffice/phpexcel": "dev-master"
+    },
+    "autoload": {
+        "psr-0": {
+            "VinceT\\PHPExcelExporter": "lib/"
+        }
+    }
+}
