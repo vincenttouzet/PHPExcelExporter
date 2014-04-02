@@ -29,6 +29,17 @@ class PHPExcelUsageTest extends \PHPUnit_Framework_TestCase
         ),
     );
 
+    /**
+     * @expectedException \RuntimeException
+     */
+    public function testFileExist()
+    {
+        $filename = tempnam(sys_get_temp_dir(), uniqid()).'.xlsx';
+        touch($filename);
+        $writer = new PHPExcelWriter($filename);
+        unlink($filename);
+    }
+
     public function testUsage()
     {
         $filename = tempnam(sys_get_temp_dir(), uniqid()).'usage.xlsx';
