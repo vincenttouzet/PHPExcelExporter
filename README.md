@@ -1,5 +1,9 @@
 # PHPExcelSourceIterator
 
+[![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/vincenttouzet/PHPExcelExporter/badges/quality-score.png?s=e7ae02fbf7a8e3c2e342be8eed2a11316afc36d9)](https://scrutinizer-ci.com/g/vincenttouzet/PHPExcelExporter/)
+[![Code Coverage](https://scrutinizer-ci.com/g/vincenttouzet/PHPExcelExporter/badges/coverage.png?s=8cb5e4b2d241d7148d8d3c1dd6ddcd29d536ca87)](https://scrutinizer-ci.com/g/vincenttouzet/PHPExcelExporter/)
+[![Build Status](https://travis-ci.org/vincenttouzet/PHPExcelExporter.svg?branch=master)](https://travis-ci.org/vincenttouzet/PHPExcelExporter)
+
 Provide a SourceIterator and a Writer for Excel files for [**sonata-project/exporter**][1]
 
 ## Installation
