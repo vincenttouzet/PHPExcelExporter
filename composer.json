@@ -1,6 +1,6 @@
 {
     "name": "vincet/phpexcel-exporter",
-    "description": "description_text",
+    "description": "",
     "minimum-stability": "dev",
     "license": "MIT",
     "authors": [
@@ -14,7 +14,8 @@
     },
     "require-dev": {
         "sonata-project/exporter": "dev-master",
-        "phpoffice/phpexcel": "dev-master"
+        "phpoffice/phpexcel": "dev-master",
+        "phpunit/phpunit": "3.7.*"
     },
     "suggest": {
         "sonata-project/exporter": "dev-master",

@@ -1,6 +1,6 @@
 # PHPExcelSourceIterator
 
-Provide a SourceIterator for Excel files for [**sonata-project/exporter**][1]
+Provide a SourceIterator and a Writer for Excel files for [**sonata-project/exporter**][1]
 
 ## Installation
 

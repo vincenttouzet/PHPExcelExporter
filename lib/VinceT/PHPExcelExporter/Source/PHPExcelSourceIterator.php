@@ -22,13 +22,23 @@ class PHPExcelSourceIterator implements SourceIteratorInterface
     private $sheet = null;
     private $position = 1;
     private $hasHeaders = true;
+    private $getIndexedCells = null;
     private $headers = array();
 
-    public function __construct($file, $sheetName = null)
+    /**
+     * @param string      $file
+     * @param bool        $hasHeaders      Must be true if the first line contains column name
+     * @param null|string $sheetName       If null use active sheet
+     * @param bool        $getIndexedCells only used when hasHeaders is false.
+     *                                     If getIndexedCells is true data will be an associative array
+     */
+    public function __construct($file, $hasHeaders = true, $sheetName = null, $getIndexedCells = true)
     {
         $objReader = \PHPExcel_IOFactory::createReaderForFile($file);
         //$objReader->setReadDataOnly(true);
         $objPHPExcel = $objReader->load($file);
+        $this->hasHeaders = $hasHeaders;
+        $this->getIndexedCells = $getIndexedCells;
         $this->sheet = $objPHPExcel->getActiveSheet();
         if ($sheetName) {
             $this->sheet = $objPHPExcel->getSheetByName($sheetName);
@@ -56,20 +66,19 @@ class PHPExcelSourceIterator implements SourceIteratorInterface
             foreach ($this->headers as $column => $header) {
                 $cell = $this->sheet->getCell($column.$this->position);
                 $value = $cell->getFormattedValue();
-                if ($cell->isFormula()) {
-                    $value = $cell->getCalculatedValue();
-                }
                 $data[$header] = $value;
             }
         } else {
             // get headers
+            $index = 1;
             foreach ($cellIterator as $cell) {
                 $value = $cell->getFormattedValue();
-                if ($this->hasHeaders && $this->position!==1) {
-                    $data[$this->headers[$cell->getColumn()]] = $value;
-                } else {
+                if ($this->getIndexedCells) {
                     $data[$cell->getColumn()] = $value;
+                } else {
+                    $data[$index] = $value;
                 }
+                $index++;
             }
         }
 
